@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080808">
+
+  <title>DZEM.SUSHI — Меню</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #080808;
+      color: #ffffff;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.5;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 0 16px 100px;
+    }
+
+    /* HEADER */
+
+    header {
+      text-align: center;
+      padding: 42px 15px 25px;
+    }
+
+    .logo {
+      font-size: 42px;
+      font-weight: 900;
+      letter-spacing: -2px;
+    }
+
+    .logo span {
+      color: #e52b1a;
+    }
+
+    .subtitle {
+      color: #999;
+      margin-top: 5px;
+      font-size: 14px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    /* NAVIGATION */
+
+    .navigation {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(8,8,8,.94);
+      backdrop-filter: blur(10px);
+      padding: 12px 0;
+      display: flex;
+      gap: 10px;
+    }
+
+    .navigation a {
+      flex: 1;
+      text-align: center;
+      text-decoration: none;
+      color: white;
+      background: #161616;
+      border: 1px solid #282828;
+      border-radius: 12px;
+      padding: 12px;
+      font-weight: 700;
+    }
+
+    .navigation a:first-child {
+      background: #e52b1a;
+      border-color: #e52b1a;
+    }
+
+    /* SECTIONS */
+
+    section {
+      padding-top: 25px;
+    }
+
+    .section-title {
+      font-size: 28px;
+      margin-bottom: 18px;
+      font-weight: 900;
+    }
+
+    .section-title span {
+      color: #e52b1a;
+    }
+
+    /* CARDS */
+
+    .card {
+      background: #121212;
+      border: 1px solid #222;
+      border-radius: 18px;
+      overflow: hidden;
+      margin-bottom: 18px;
+    }
+
+    .image-placeholder {
+      height: 210px;
+      background:
+        radial-gradient(circle at 50% 30%, #292929, #111 65%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #555;
+      font-size: 14px;
+    }
+
+    .card-content {
+      padding: 18px;
+    }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      align-items: flex-start;
+    }
+
+    .card h3 {
+      font-size: 21px;
+      margin-bottom: 5px;
+    }
+
+    .price {
+      color: #ff3b27;
+      font-size: 22px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .info {
+      color: #888;
+      font-size: 13px;
+      margin-bottom: 10px;
+    }
+
+    .description {
+      color: #c7c7c7;
+      font-size: 14px;
+    }
+
+    /* ROLLS */
+
+    .roll {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      padding: 17px 0;
+      border-bottom: 1px solid #242424;
+    }
+
+    .roll:last-child {
+      border-bottom: none;
+    }
+
+    .roll-name {
+      font-weight: 800;
+      font-size: 17px;
+      margin-bottom: 4px;
+    }
+
+    .roll-description {
+      color: #8e8e8e;
+      font-size: 13px;
+      max-width: 430px;
+    }
+
+    .roll-price {
+      font-size: 18px;
+      font-weight: 900;
+      color: #ff3b27;
+      white-space: nowrap;
+    }
+
+    .rolls-box {
+      background: #121212;
+      border: 1px solid #222;
+      padding: 0 18px;
+      border-radius: 18px;
+    }
+
+    /* ORDER */
+
+    .order-box {
+      margin-top: 40px;
+      padding: 25px;
+      text-align: center;
+      background: #121212;
+      border-radius: 18px;
+      border: 1px solid #222;
+    }
+
+    .order-box h2 {
+      margin-bottom: 7px;
+    }
+
+    .order-box p {
+      color: #888;
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+
+    .order-button {
+      display: block;
+      background: #e52b1a;
+      color: white;
+      padding: 15px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 900;
+      font-size: 17px;
+    }
+
+    footer {
+      color: #555;
+      text-align: center;
+      font-size: 12px;
+      margin-top: 35px;
+    }
+
+    @media (max-width: 420px) {
+      .logo {
+        font-size: 36px;
+      }
+
+      .image-placeholder {
+        height: 180px;
+      }
+
+      .card h3 {
+        font-size: 19px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <header>
+    <div class="logo">DZEM.<span>SUSHI</span></div>
+    <div class="subtitle">Суші серед Карпат</div>
+  </header>
+
+  <nav class="navigation">
+    <a href="#sets">СЕТИ</a>
+    <a href="#rolls">РОЛИ</a>
+  </nav>
+
+
+  <!-- СЕТИ -->
+
+  <section id="sets">
+
+    <h2 class="section-title"><span>Сети</span></h2>
+
+    <div class="card">
+      <div class="image-placeholder">Фото Set №1</div>
+
+      <div class="card-content">
+
+        <div class="card-top">
+          <div>
+            <h3>Set №1</h3>
+            <div class="info">40 шт.</div>
+          </div>
+
+          <div class="price">1100 ₴</div>
+        </div>
+
+        <div class="description">
+          Філадельфія з лососем • Сніжний краб •
+          Чіз-рол • Грін-рол з тунцем • Макі огірок
+        </div>
+
+      </div>
+    </div>
+
+
+    <div class="card">
+      <div class="image-placeholder">Фото Set №2</div>
+
+      <div class="card-content">
+
+        <div class="card-top">
+          <div>
+            <h3>Set №2</h3>
+            <div class="info">40 шт.</div>
+          </div>
+
+          <div class="price">1200 ₴</div>
+        </div>
+
+        <div class="description">
+          Філадельфія з лососем • Авокадо-рол •
+          Каліфорнія з лососем • Хікомак з крабом • Макі філа
+        </div>
+
+      </div>
+    </div>
+
+
+    <div class="card">
+      <div class="image-placeholder">Фото Set №3 — Дракони</div>
+
+      <div class="card-content">
+
+        <div class="card-top">
+          <div>
+            <h3>Set №3 — Дракони</h3>
+            <div class="info">24 шт.</div>
+          </div>
+
+          <div class="price">800 ₴</div>
+        </div>
+
+        <div class="description">
+          Зелений дракон • Червоний дракон • Чорний дракон
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- РОЛИ -->
+
+  <section id="rolls">
+
+    <h2 class="section-title"><span>Роли</span></h2>
+
+    <div class="rolls-box">
+
+      <div class="roll">
+        <div>
+          <div class="roll-name">Філадельфія з лососем</div>
+          <div class="roll-description">
+            Лосось, крем-сир, авокадо
+          </div>
+        </div>
+        <div class="roll-price">— ₴</div>
+      </div>
+
+      <div class="roll">
+        <div>
+          <div class="roll-name">Сніжний краб</div>
+          <div class="roll-description">
+            Крабова суміш, крем-сир, кунжут
+          </div>
+        </div>
+        <div class="roll-price">— ₴</div>
+      </div>
+
+      <div class="roll">
+        <div>
+          <div class="roll-name">Чіз-рол</div>
+          <div class="roll-description">
+            Крем-сир, тостовий сир
+          </div>
+        </div>
+        <div class="roll-price">— ₴</div>
+      </div>
+
+      <div class="roll">
+        <div>
+          <div class="roll-name">Грін-рол з тунцем</div>
+          <div class="roll-description">
+            Тунець, крем-сир, огірок
+          </div>
+        </div>
+        <div class="roll-price">— ₴</div>
+      </div>
+
+      <div class="roll">
+        <div>
+          <div class="roll-name">Макі огірок</div>
+          <div class="roll-description">
+            Огірок, рис, норі
+          </div>
+        </div>
+        <div class="roll-price">— ₴</div>
+      </div>
+
+      <div class="roll">
+        <div>
+          <div class="roll-name">Каліфорнія з лососем</div>
+          <div class="roll-description">
+            Лосось, авокадо, огірок
+          </div>
+        </div>
+        <div class="roll-price">— ₴</div>
+      </div>
+
+      <div class="roll">
+        <div>
+          <div class="roll-name">Авокадо-рол</div>
+          <div class="roll-description">
+            Авокадо, крем-сир, огірок
+          </div>
+        </div>
+        <div class="roll-price">— ₴</div>
+      </div>
+
+      <div class="roll">
+        <div>
+          <div class="roll-name">Хікомак з крабом</div>
+          <div class="roll-description">
+            Крабова суміш, авокадо, крем-сир
+          </div>
+        </div>
+        <div class="roll-price">— ₴</div>
+      </div>
+
+      <div class="roll">
+        <div>
+          <div class="roll-name">Макі філа</div>
+          <div class="roll-description">
+            Крем-сир, рис, норі
+          </div>
+        </div>
+        <div class="roll-price">— ₴</div>
+      </div>
+
+      <div class="roll">
+        <div>
+          <div class="roll-name">Зелений дракон</div>
+          <div class="roll-description">
+            Крем-сир, огірок, тунець, ікра
+          </div>
+        </div>
+        <div class="roll-price">— ₴</div>
+      </div>
+
+      <div class="roll">
+        <div>
+          <div class="roll-name">Чорний дракон</div>
+          <div class="roll-description">
+            Крем-сир, огірок, крабова суміш, ікра
+          </div>
+        </div>
+        <div class="roll-price">— ₴</div>
+      </div>
+
+      <div class="roll">
+        <div>
+          <div class="roll-name">Червоний дракон</div>
+          <div class="roll-description">
+            Крем-сир, огірок, лосось, ікра
+          </div>
+        </div>
+        <div class="roll-price">— ₴</div>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ORDER -->
+
+  <div class="order-box">
+    <h2>Хочеш замовити? 🍣</h2>
+    <p>Напиши нам в Instagram</p>
+
+    <a
+      class="order-button"
+      href="https://instagram.com/dzem.sushi"
+      target="_blank"
+    >
+      Замовити в Instagram
+    </a>
+  </div>
+
+
+  <footer>
+    DZEM.SUSHI • с. Дземброня
+  </footer>
+
+</div>
+
+</body>
+</html>
