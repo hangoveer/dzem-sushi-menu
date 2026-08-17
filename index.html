@@ -299,18 +299,25 @@
     }
 
     .roll-photo {
-      width: 76px;
-      height: 76px;
-      border-radius: 14px;
-      display: grid;
-      place-items: center;
-      flex-shrink: 0;
-      background:
+    width: 76px;
+    height: 76px;
+    border-radius: 14px;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    background:
         radial-gradient(circle at 45% 35%, #383838, #1b1b1b 70%);
-      color: #666;
-      font-size: 20px;
-    }
-
+    color: #666;
+    font-size: 20px;
+    overflow: hidden;
+}
+    .roll-photo img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+}
     .roll-name {
       margin-bottom: 5px;
       font-size: 16px;
